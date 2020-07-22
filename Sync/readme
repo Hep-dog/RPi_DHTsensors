@@ -1,0 +1,29 @@
+The scripts in this directory are used to synchronize the data from clients to host (Using the rsync + inotify):
+	
+
+	1. Setup for the host:
+
+		a. copy the template file: rsyncd.conf ---> /etc/rsyncd.conf
+
+		b. copy the templet file: Host_rsyncd.secrets ---> /etc/rsyncd.secrets (user should be same as rsyncd.conf)
+
+		c. chmod 600 /etc/rsyncd.secrets
+
+		d. sudo systemctl restart rsyncd
+
+		e. sudo systemctl enable rsyncd ( auto-working after the host startup)
+
+
+	2. Setup for the Clients:
+
+		a. copy the template file: rsyncd.secrets --> /etc/rsyncd.secrets (only the password, which is same as the host)
+
+		b. chmod 600 /etc/rsyncd.secrets
+
+		c. copy the run scrpit and set it working after the Clients startup (we use the systemd service)	
+			$ sudo cp /Sync/trans.service  /usr/lib/systemd/system/trans.service
+			$ sudu systemctl daemon-reload
+			$ sudo systemctl start trans.service
+			$ sudo systemctl enable trans.service (Running after the clients startup)
+		
+		

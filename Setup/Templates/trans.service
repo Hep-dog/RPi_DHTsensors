@@ -1,0 +1,11 @@
+[Unit]
+Description=Service for trans
+After=network.target
+
+[Service]
+TimeoutStartSec=30
+ExecStart=Defaultdir/Sync/trans.sh
+ExecStop=/bin/kill $MAINPID
+
+[Install]
+WantedBy=multi-user.target
