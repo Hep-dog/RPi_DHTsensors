@@ -14,6 +14,7 @@ so we take it as the official method in the this repository work.
 ================================ Global layout ===========================================
 
 0. ----------------------------- Installation  -------------------------------------------
+
 	The scripts in this dir is used to install the necessary packages:
 
 		a. Adafruit_Python_DHT, using its "setup.py" file to install;
@@ -27,6 +28,7 @@ so we take it as the official method in the this repository work.
 	
 
 1. --------------------------------- Setup ------------------------------------------------
+
 	The scripts in this dir is used for the software config. The main file is the "Config.py" file
 	for the global environment, influxdb and so on.
 
