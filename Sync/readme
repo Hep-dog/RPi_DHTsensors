@@ -7,11 +7,11 @@ The scripts in this directory are used to synchronize the data from clients to h
 
 		b. copy the templet file: Host_rsyncd.secrets ---> /etc/rsyncd.secrets (user should be same as rsyncd.conf)
 
-		c. chmod 600 /etc/rsyncd.secrets
+		c. $ chmod 600 /etc/rsyncd.secrets
 
-		d. sudo systemctl restart rsyncd
+		d. $ sudo systemctl restart rsyncd
 
-		e. sudo systemctl enable rsyncd ( auto-working after the host startup)
+		e. $ sudo systemctl enable rsyncd ( auto-working after the host startup), then reboot.
 
 
 	2. Setup for the Clients:
@@ -25,5 +25,6 @@ The scripts in this directory are used to synchronize the data from clients to h
 			$ sudu systemctl daemon-reload
 			$ sudo systemctl start trans.service
 			$ sudo systemctl enable trans.service (Running after the clients startup)
+            $ reboot
 		
 		
