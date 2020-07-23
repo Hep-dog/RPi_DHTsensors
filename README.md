@@ -74,10 +74,6 @@ so we take it as the official method in the this repository work.
 		$ python runCollection.py && python rundb.py
 
 
-
-
-4. --------------------------------- Collection and Display ---------------------------------
-
 	The crontab is used to continue with the data collection and displaying. During the crontab running, the environment always not same as shell. We should use the absolute dir for each file and command. In addition, we use the bash scripts to run the python ones, which are in the Crontab dir. We source the "/etc/profile" firsyly, to get the shell environment, and then run the data collection and displaying processes. Adding the following schedules in crontal:
 
 		$ crontab -e
@@ -85,7 +81,7 @@ so we take it as the official method in the this repository work.
 		Adding "* * * * * /bin/bash workarea/Crontab/doDisplay.sh";
 
 
-5. --------------------------------- Synchronizing data  ---------------------------------
+4. --------------------------------- Synchronizing data  ---------------------------------
 
 	We use rsync + inotify to synchronize data from RPi clients to Ubuntu host. More detailed descriptions can be found in the Sync directory.
 	After the data transmission from clients to host, we transfer the data to influxdb database in host server, and then display it with grafana. Just like what we do in clients, except the data collection with DHT sensors.
@@ -94,14 +90,20 @@ so we take it as the official method in the this repository work.
 
 
 
-6. --------------------------------- Useful information  ---------------------------------
+5. --------------------------------- Useful information  ---------------------------------
 
 	a. The frequency of DHT sensors data reading, cited from other people familar with Adafruit_DHT_reader (Link:	www.sopwith.ismellsmoke.net/?p=400) 
 
-	The Adafruit_DHT.read_retry( sensor, pin ) function call will attempt to read data from the sensor 15 times in 2 second intervals. It returns as soon as is has valid data. This means the function call can take up to 30 seconds to return results. After 15 reties it gives up and return None values for the temp and humidity.... If you need a temp/humi reading more than once or twice a minute, this device is not for you.
+		The Adafruit_DHT.read_retry( sensor, pin ) function call will attempt to read data from the sensor 15 times in 2 second intervals. It returns as soon as is has valid data. This means the function call can take up to 30 seconds to return results. After 15 reties it gives up and return None values for the temp and humidity.... If you need a temp/humi reading more than once or twice a minute, this device is not for you.
 
 
 	b. About the system logs: 
 
-	Since there will be large log files in the /var/log directory during the influxdb and telegraf running, and the Raspberry Pi system may be stuck due to this reason. So the regular cleaning of these files is available by running the script named "Clean_log.py" in Setup dir, and it will be executed day by day with the crontab.
+		Since there will be large log files in the /var/log directory during the influxdb and telegraf running, and the Raspberry Pi system may be stuck due to this reason. So the regular cleaning of these files is available by running the script named "Clean_log.py" in Setup dir, and it will be executed day by day with the crontab.
+
+	c. The influxdb database:
+		
+
+
+
 
