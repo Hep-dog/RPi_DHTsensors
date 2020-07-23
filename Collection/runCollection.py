@@ -7,7 +7,7 @@ from influxdb import InfluxDBClient
 import Module
 
 # workarea, which is necessary
-workarea = '/home/pi/Work/RPi_DHTsensors/'
+workarea = '/home/pi/Work/RPi_DHTsensors'
 sys.path.append(workarea)
 
 # import the parameters

@@ -16,7 +16,7 @@ user = ""
 passwd = ""
 
 # Name of database for influxdb and input for grafana
-dbname = "test"
+dbname = "DHT11"
 
 # The parameters below should be configing by user before runing the data collection!!!
 
