@@ -24,7 +24,7 @@ sudo apt install -y grafana
 sudo systemctl enable influxdb.service
 sudo systemctl enable grafana-server
 
-# Install the Adafruit_Python_DHT
+# Install the Adafruit_Python_DHT, only for Raspberry PI clients
 cd ../Adafruit_Python_DHT/ 
 sudo python setup.py install
 

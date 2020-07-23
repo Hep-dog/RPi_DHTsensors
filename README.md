@@ -1,5 +1,6 @@
 ### This project is used to read the temperature and humidity values using the DHT11/DHT22 sensor for Raspberry. The core package is the Adafruit_DHT (https://github.com/adafruit/Adafruit_Python_DHT)
 ### If you have any problem, please contact: shenpx91@gmail.com
+### Note: the python version should be python2.+
 
 Two methods listed in this repository, to transfer the data to influxdb and display it using the grafana:
 

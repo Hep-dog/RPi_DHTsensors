@@ -37,18 +37,34 @@ os.system(cmd2)
 # setup workarea for scripts to synchronize data from clients to host (in Sync folder)
 cmd1 = 'cp ' + workarea + '/Setup/Templates/trans.sh ' + workarea +'/Sync/trans.sh'
 cmd2 = 'cp ' + workarea + '/Setup/Templates/trans.service ' + workarea +'/Sync/trans.service'
+cmd3 = 'cp ' + workarea + '/Setup/Templates/rsyncd.conf ' + workarea +'/Sync/rsyncd.conf'
 os.system(cmd1)
 os.system(cmd2)
+os.system(cmd3)
 
 cmd1 = 'sed -i "s:Defaultdir:' + dirFormat + ':g" ' + workarea + '/Sync/trans.sh'
 cmd2 = 'sed -i "s:Defaultdir:' + dirFormat + ':g" ' + workarea + '/Sync/trans.service'
+cmd3 = 'sed -i "s:Defaultdir:' + dirFormat + ':g" ' + workarea + '/Sync/rsyncd.conf'
 os.system(cmd1)
 os.system(cmd2)
+os.system(cmd3)
 
 # setup host ip for data synchronizing from clients to host (in Sync folder)
 ipHost = '192.168.43.84'
 cmd = 'sed -i "s:ipHost:' + ipHost + ':g" ' + workarea + '/Sync/trans.sh'
 os.system(cmd)
+
+# setup clients ip for data synchronizing frome clients to host ( in Sync folder)
+ipClient1 = '192.168.43.80'
+ipClient2 = '192.168.43.100'
+ipClient3 = '192.168.43.190'
+
+cmd1 = 'sed -i "s:clientIP1:' + ipClient1 + ':g" ' + workarea + '/Sync/rsyncd.conf'
+cmd2 = 'sed -i "s:clientIP2:' + ipClient2 + ':g" ' + workarea + '/Sync/rsyncd.conf'
+cmd3 = 'sed -i "s:clientIP3:' + ipClient3 + ':g" ' + workarea + '/Sync/rsyncd.conf'
+os.system(cmd1)
+os.system(cmd2)
+os.system(cmd3)
 
 
 ########################################################################################
