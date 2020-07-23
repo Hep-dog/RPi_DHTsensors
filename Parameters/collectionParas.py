@@ -7,19 +7,6 @@ import os, commands
 ################# Setup for collecting data and run transfer to influxdb database ######
 import Adafruit_DHT
 
-# IP address for clients, default value is OK
-host = "127.0.0.1"
-# Port for influxdb, default value is OK
-port = 8086
-# User and passwd for influxdb and grafana, none is OK
-user = ""
-passwd = ""
-
-# Name of database for influxdb and input for grafana
-dbname = "DHT11"
-
-# The parameters below should be configing by user before runing the data collection!!!
-
 # Sensor type for Adafruit_DHT, should be DHT11, DHT22 or AM2302
 sensor = Adafruit_DHT.DHT11
 

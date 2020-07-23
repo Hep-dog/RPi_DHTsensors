@@ -3,7 +3,7 @@
 import time, sys, datetime, logging, os, commands
 from influxdb import InfluxDBClient
 
-class Collection():
+class Display():
 
     def __init__(self, host, port, user, passwd, dbname, meas, outname):
         self.host = host

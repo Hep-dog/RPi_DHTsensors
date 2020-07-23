@@ -3,28 +3,28 @@
 
 import time, sys, datetime, logging, os, commands
 from influxdb import InfluxDBClient
-import Module
+import dbModule
 
 # workarea, which is necessary
-workarea = '/home/jiyizi/Work/Coding/Raspberry/RPi_DHTsensors'
+workarea = '/home/pi/Work/RPi_DHTsensors'
 sys.path.append(workarea)
 
 # import the parameters
-from Parameters import paras
+from Parameters import dbParas
 
 def main():
 
-    num_sensors = len( paras.sensor_gpios )
+    num_sensors = len( dbParas.measurements )
 
     for n in range( num_sensors ):
-        tempt_sensor = Module.Collection(
-                paras.host,
-                paras.port,
-                paras.user, 
-                paras.passwd, 
-                paras.dbname, 
-                paras.measurements[n], 
-                paras.outputs[n]
+        tempt_sensor = dbModule.Display(
+                dbParas.host,
+                dbParas.port,
+                dbParas.user, 
+                dbParas.passwd, 
+                dbParas.dbname, 
+                dbParas.measurements[n], 
+                dbParas.outputs[n]
                 )
 
         tempt_sensor.check_IP()

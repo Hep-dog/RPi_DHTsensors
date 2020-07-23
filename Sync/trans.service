@@ -4,7 +4,7 @@ After=network.target
 
 [Service]
 TimeoutStartSec=30
-ExecStart=/home/jiyizi/Work/Coding/Raspberry/RPi_DHTsensors/Sync/trans.sh
+ExecStart=/home/pi/Work/RPi_DHTsensors/Sync/trans.sh
 ExecStop=/bin/kill $MAINPID
 
 [Install]
