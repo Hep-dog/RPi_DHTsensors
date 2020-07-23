@@ -2,4 +2,4 @@
 
 source /etc/profile
 
-/usr/bin/python /home/pi/Work/RPi_DHTsensors/Collection/runCollection.py
+/usr/bin/python2.7 /home/pi/Work/RPi_DHTsensors/Collection/runCollection.py

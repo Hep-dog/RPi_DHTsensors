@@ -2,4 +2,4 @@
 
 source /etc/profile
 
-/usr/bin/python Defaultdir/Display/rundb.py
+/usr/bin/python2.7 Defaultdir/Display/rundb.py
