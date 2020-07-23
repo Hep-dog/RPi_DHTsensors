@@ -1,5 +1,5 @@
 *.dat
 
-*.pyc
+**/*.pyc
 
 /Data/*
