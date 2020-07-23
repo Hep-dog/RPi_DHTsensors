@@ -1,0 +1,8 @@
+SHELL=/bin/bash
+BASH_ENV=~/.bashrc
+PATH=/sbin:/bin:/usr/sbin:/usr/bin
+
+# m h  dom mon dow   command
+
+* * * * * /bin/bash /home/pi/Work/RPi_DHTsensors/Crontab/doCollection.sh
+* * * * * /bin/bash /home/pi/Work/RPi_DHTsensors/Crontab/doDisplay.sh
