@@ -22,6 +22,16 @@ cmd2 = 'sed -i "s:Defaultdir:' + dirFormat + ':g" ' + workarea + '/Display/rundb
 os.system(cmd1)
 os.system(cmd2)
 
+# set workarea for default parameter of data collection and displaying ( Paras_coll.py and Paras_db.py in Setup/Templates )
+cmd1 = 'cp ' + workarea + '/Setup/Templates/Paras_coll.py ' + workarea +'/Parameters/Paras_coll.py'
+cmd2 = 'cp ' + workarea + '/Setup/Templates/Paras_db.py '   + workarea +'/Parameters/Paras_db.py'
+os.system(cmd1)
+os.system(cmd2)
+cmd1 = 'sed -i "s:Defaultdir:' + dirFormat + ':g" ' + workarea + '/Parameters/Paras_coll.py'
+cmd2 = 'sed -i "s:Defaultdir:' + dirFormat + ':g" ' + workarea + '/Parameters/Paras_db.py'
+os.system(cmd1)
+os.system(cmd2)
+
 # setup workarea for script  to run collection and displaying (in Crontab folder)
 cmd1 = 'cp ' + workarea + '/Setup/Templates/collectionTempt.sh ' + workarea +'/Crontab/doCollection.sh'
 cmd2 = 'cp ' + workarea + '/Setup/Templates/displayTempt.sh '    + workarea +'/Crontab/doDisplay.sh'
