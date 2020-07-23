@@ -1,13 +1,11 @@
 #!/usr/bin/python
 
 import time, sys, datetime, logging, os, commands
-import Adafruit_DHT
 from influxdb import InfluxDBClient
-
 
 class Collection():
 
-    def __init__(self, host, port, user, passwd, dbname, meas, sensor, sensor_gpip, outname):
+    def __init__(self, host, port, user, passwd, dbname, meas, outname):
         self.host = host
         self.port = port
         self.meas = meas
@@ -15,58 +13,12 @@ class Collection():
         self.passwd = passwd
         self.dbname = dbname
         self.outname= outname
-        self.sensor = sensor
-        self.sensor_gpip = sensor_gpip
 
     def check_IP(self):
         cmd = 'ifconfig  |grep broadcast | awk -F \'netmask\' {\'system("echo " $1)\'} | awk -F \'inet\'  {\'system("echo " $2)\'}'
         status, output = commands.getstatusoutput(cmd)
         self.host = str(output)
 
-    def setup_logger(self):
-        # This function is used to set logging
-
-        level=logging.INFO
-        formatter = logging.Formatter( '%(message)s')
-        handler   = logging.FileHandler(self.outname)
-        handler.setFormatter(formatter)
-        logger = logging.getLogger(self.meas) 
-        logger.setLevel(level)
-        logger.addHandler(handler)
-
-        return logger
-
-    def run_collection(self):
-
-        # Set the output file
-        #logging.basicConfig( filename=self.outname, filemode='a', format='%(message)s', level=logging.INFO)
-        logger = self.setup_logger()
-
-        while True:
-            humidity, temperature = Adafruit_DHT.read_retry(self.sensor, self.sensor_gpip)
-            iso = int(round(time.time()*1000000000))
-            data = [
-                    {
-                        "measurement" : self.meas,
-                        "time" : iso,
-                        "fields" : {
-                            "temperature" : temperature,
-                            "humidity"    : humidity
-                            }
-                        }
-                    ]
-    
-            if temperature is not None and humidity is not None:
-                if float(humidity)<100:
-                    #logging.info('Temp={0:0.1f}C and Humidity={1:0.1f}%'.format(temperature, humidity))
-                    logger.info('{0:18d} Temp={1:0.1f}C and Humidity={2:0.1f}%'.format(iso, temperature, humidity))
-
-                    # Create the InfluxDB client object
-                    # The data will be saved locally, even thought the influxdb doesn't works
-                    #client = InfluxDBClient( self.host, self.port, self.user, self.passwd, self.dbname)
-                    #client.write_points(data)
-                    #print("[%s] Temp: %s, Humidity: %s" % (iso ,temperature, humidity))
-                    break
 
     # This function is used to synchronize the local DHT data the influxdb
     def sync_localdata_DHT(self):
@@ -109,8 +61,6 @@ def main():
     user = ""
     passwd = ""
     dbname = "sync"
-    sensor = Adafruit_DHT.DHT11
-    sensor_gpip = 4
     output = "/home/pi/Work/dht22/Collect/data/test.log"
     measurement = "dht11"
 

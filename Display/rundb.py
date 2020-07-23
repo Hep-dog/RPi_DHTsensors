@@ -2,7 +2,6 @@
 #coding = utf-8
 
 import time, sys, datetime, logging, os, commands
-import Adafruit_DHT
 from influxdb import InfluxDBClient
 import Module
 
@@ -25,8 +24,6 @@ def main():
                 paras.passwd, 
                 paras.dbname, 
                 paras.measurements[n], 
-                paras.sensor, 
-                paras.sensor_gpios[n], 
                 paras.outputs[n]
                 )
 
