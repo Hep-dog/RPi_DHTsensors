@@ -11,8 +11,8 @@ cmd = 'echo $DHTsensors_workarea'
 _, workarea = commands.getstatusoutput(cmd)
 
 # set workarea for data collection (in Collection and Display folders)
-cmd1 = 'cp ' + workarea + '/Setup/Templates/temp_runCollection.py ' + workarea + 'Collection/runCollection.py'
-cmd2 = 'cp ' + workarea + '/Setup/Templates/temp_rundb.py ' + workarea + 'Display/rundb.py'
+cmd1 = 'cp ' + workarea + '/Setup/Templates/temp_runCollection.py ' + workarea + '/Collection/runCollection.py'
+cmd2 = 'cp ' + workarea + '/Setup/Templates/temp_rundb.py ' + workarea + '/Display/rundb.py'
 os.system(cmd1)
 os.system(cmd2)
 
@@ -23,8 +23,8 @@ os.system(cmd1)
 os.system(cmd2)
 
 # setup workarea for script  to run collection and displaying (in Crontab folder)
-cmd1 = 'cp ' + workarea + '/Setup/Templates/collectionTempt.sh ' + workarea +'Crontab/doCollection.sh'
-cmd2 = 'cp ' + workarea + '/Setup/Templates/displayTempt.sh '    + workarea +'Crontab/doDisplay.sh'
+cmd1 = 'cp ' + workarea + '/Setup/Templates/collectionTempt.sh ' + workarea +'/Crontab/doCollection.sh'
+cmd2 = 'cp ' + workarea + '/Setup/Templates/displayTempt.sh '    + workarea +'/Crontab/doDisplay.sh'
 os.system(cmd1)
 os.system(cmd2)
 
