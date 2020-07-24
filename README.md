@@ -84,11 +84,12 @@ so we take it as the official method in the this repository work.
 		Adding "* * * * * /bin/bash workarea/Crontab/doDisplay.sh";
 	
 	Additionally, the crontab shell environment is not same as user environment usually. So we should ad the following commands at tbe beginning of crontab, which also can be found in the "templateCrontab" file in Crontab dir.
+
 		$ SEHLL=/bin/bash
 		$ BASH_ENV=~/.bashrc
 		$ PATH=/sbin:/bin:/usr:/sbin:/usr/bin
 		$ ...
-		$ ...
+
 
 4. --------------------------------- Synchronizing data  ---------------------------------
 
