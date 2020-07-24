@@ -60,10 +60,15 @@ os.system(cmd2)
 os.system(cmd3)
 
 # setup workarea for data backup (in Backup folder)
-cmd = 'cp ' + workarea + '/Setup/Templates/tempBackup.py ' + workarea +'/Backup/backup.py'
-os.system(cmd)
-cmd = 'sed -i "s:Defaultdir:' + dirFormat + ':g" ' + workarea + '/Backup/backup.py'
-os.system(cmd)
+cmd1 = 'cp ' + workarea + '/Setup/Templates/tempBackup.py ' + workarea +'/Backup/backup.py'
+cmd2 = 'cp ' + workarea + '/Setup/Templates/backupTempt.sh ' + workarea +'/Crontab/doBackup.sh'
+os.system(cmd1)
+os.system(cmd2)
+
+cmd1 = 'sed -i "s:Defaultdir:' + dirFormat + ':g" ' + workarea + '/Backup/backup.py'
+cmd2 = 'sed -i "s:Defaultdir:' + dirFormat + ':g" ' + workarea + '/Crontab/doBackup.sh'
+os.system(cmd1)
+os.system(cmd2)
 
 
 # setup host ip for data synchronizing from clients to host (in Sync folder)
