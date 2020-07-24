@@ -59,6 +59,13 @@ os.system(cmd1)
 os.system(cmd2)
 os.system(cmd3)
 
+# setup workarea for data backup (in Backup folder)
+cmd = 'cp ' + workarea + '/Setup/Templates/tempBackup.py ' + workarea +'/Backup/backup.py'
+os.system(cmd)
+cmd = 'sed -i "s:Defaultdir:' + dirFormat + ':g" ' + workarea + '/Backup/backup.py'
+os.system(cmd)
+
+
 # setup host ip for data synchronizing from clients to host (in Sync folder)
 ipHost = '192.168.43.84'
 cmd = 'sed -i "s:ipHost:' + ipHost + ':g" ' + workarea + '/Sync/trans.sh'
