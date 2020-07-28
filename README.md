@@ -146,6 +146,9 @@ so we take it as the official method in the this repository work.
 		Your workarea + '/Data/' + date). 
 		So, it will be hightly recommended to run " python Setup/Config.py" in schedule, maybe week by week.
 		
+	d. About the Raw data path:
+		
+		We use the format of 'Year/Mon/Today_Year_Mon_Tomor' to set the raw data path, which is automatically set by Run Config.py script in Setup dir. So, it's suggested to run the Config.py using crontab day by day.
 
 
 

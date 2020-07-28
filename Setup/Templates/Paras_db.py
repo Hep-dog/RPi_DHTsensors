@@ -19,10 +19,15 @@ dbname = "DHT11"
 
 # Data files for saving the humi and temp values
 outputs = [
-        "Defaultdir/Collection/data/dht11_1.dat",
-	"Defaultdir/Collection/data/dht11_2.dat",
-	"Defaultdir/Collection/data/dht11_3.dat"
+        "Defaultdir/Collection/data/TODAY_TOMOR/dht11_1_TODAY_TOMOR.dat",
+	"Defaultdir/Collection/data/TODAY_TOMOR/dht11_2_TODAY_TOMOR.dat",
+	"Defaultdir/Collection/data/TODAY_TOMOR/dht11_3_TODAY_TOMOR.dat"
         ]
+#outputs = [
+#        "Defaultdir/Collection/data/dht11_1.dat",
+#	"Defaultdir/Collection/data/dht11_2.dat",
+#	"Defaultdir/Collection/data/dht11_3.dat"
+#        ]
     	
 # Name of measurements of sensors for influxdb and grafana
 measurements = [ "dht11_1", "dht11_2", "dht11_3" ]

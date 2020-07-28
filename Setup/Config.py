@@ -32,6 +32,26 @@ cmd2 = 'sed -i "s:Defaultdir:' + dirFormat + ':g" ' + workarea + '/Parameters/Pa
 os.system(cmd1)
 os.system(cmd2)
 
+# set new dir for data storage: Year/Mon/Day
+cmd1= 'date +%Y%m%d'
+cmd2= 'date -d tomorrow +%Y%m%d'
+_, today = commands.getstatusoutput(cmd1)
+_, tomor = commands.getstatusoutput(cmd2)
+newRawDataPath = workarea + '/Collection/data/' + str(today) + '_' + str(tomor)
+os.system(' mkdir -p ' + newRawDataPath)
+print 'The new rawdata path is: ' + newRawDataPath
+
+cmd1 = 'sed -i "s:TODAY:' + today + ':g" ' + workarea + '/Parameters/Paras_coll.py'
+cmd2 = 'sed -i "s:TODAY:' + today + ':g" ' + workarea + '/Parameters/Paras_db.py'
+os.system(cmd1)
+os.system(cmd2)
+
+cmd1 = 'sed -i "s:TOMOR:' + tomor + ':g" ' + workarea + '/Parameters/Paras_coll.py'
+cmd2 = 'sed -i "s:TOMOR:' + tomor + ':g" ' + workarea + '/Parameters/Paras_db.py'
+os.system(cmd1)
+os.system(cmd2)
+
+
 # setup workarea for script  to run collection and displaying (in Crontab folder)
 cmd1 = 'cp ' + workarea + '/Setup/Templates/collectionTempt.sh ' + workarea +'/Crontab/doCollection.sh'
 cmd2 = 'cp ' + workarea + '/Setup/Templates/displayTempt.sh '    + workarea +'/Crontab/doDisplay.sh'
@@ -40,8 +60,10 @@ os.system(cmd2)
 
 cmd1 = 'sed -i "s:Defaultdir:' + dirFormat + ':g" ' + workarea + '/Crontab/doCollection.sh'
 cmd2 = 'sed -i "s:Defaultdir:' + dirFormat + ':g" ' + workarea + '/Crontab/doDisplay.sh'
+cmd3 = 'sed -i "s:Defaultdir:' + dirFormat + ':g" ' + workarea + '/Crontab/doSetup.sh'
 os.system(cmd1)
 os.system(cmd2)
+os.system(cmd3)
 
 
 # setup workarea for scripts to synchronize data from clients to host (in Sync folder)

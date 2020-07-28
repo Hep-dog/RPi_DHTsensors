@@ -14,10 +14,15 @@ sensor = Adafruit_DHT.DHT22
 sensor_gpios = [ 4, 18, 12 ]
 
 # Data files for saving the humi and temp values
+#outputs = [
+#        "Defaultdir/Collection/data/dht11_1.dat",
+#	"Defaultdir/Collection/data/dht11_2.dat",
+#	"Defaultdir/Collection/data/dht11_3.dat"
+#        ]
 outputs = [
-        "Defaultdir/Collection/data/dht11_1.dat",
-	"Defaultdir/Collection/data/dht11_2.dat",
-	"Defaultdir/Collection/data/dht11_3.dat"
+        "Defaultdir/Collection/data/TODAY_TOMOR/dht11_1_TODAY_TOMOR.dat",
+	"Defaultdir/Collection/data/TODAY_TOMOR/dht11_2_TODAY_TOMOR.dat",
+	"Defaultdir/Collection/data/TODAY_TOMOR/dht11_3_TODAY_TOMOR.dat"
         ]
     	
 # Name of measurements of sensors for influxdb and grafana
