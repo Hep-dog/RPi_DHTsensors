@@ -10,21 +10,21 @@ workarea = 'Defaultdir'
 sys.path.append(workarea)
 
 # import the parameters
-from Parameters import dbParas
+from Parameters import Paras_db
 
 def main():
 
-    num_sensors = len( dbParas.measurements )
+    num_sensors = len( Paras_db.measurements )
 
     for n in range( num_sensors ):
         tempt_sensor = dbModule.Display(
-                dbParas.host,
-                dbParas.port,
-                dbParas.user, 
-                dbParas.passwd, 
-                dbParas.dbname, 
-                dbParas.measurements[n], 
-                dbParas.outputs[n]
+                Paras_db.host,
+                Paras_db.port,
+                Paras_db.user, 
+                Paras_db.passwd, 
+                Paras_db.dbname, 
+                Paras_db.measurements[n], 
+                Paras_db.outputs[n]
                 )
 
         tempt_sensor.check_IP()

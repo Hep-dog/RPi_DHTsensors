@@ -11,18 +11,18 @@ workarea = 'Defaultdir'
 sys.path.append(workarea)
 
 # import the parameters
-from Parameters import collectionParas
+from Parameters import Paras_coll
 
 def main():
 
-    num_sensors = len( collectionParas.sensor_gpios )
+    num_sensors = len( Paras_coll.sensor_gpios )
 
     for n in range( num_sensors ):
         tempt_sensor = collectionModule.Collection(
-                collectionParas.measurements[n],
-                collectionParas.sensor, 
-                collectionParas.sensor_gpios[n], 
-                collectionParas.outputs[n]
+                Paras_coll.measurements[n],
+                Paras_coll.sensor, 
+                Paras_coll.sensor_gpios[n], 
+                Paras_coll.outputs[n]
                 )
 
         tempt_sensor.run_collection()

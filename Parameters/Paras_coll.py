@@ -8,10 +8,10 @@ import os, commands
 import Adafruit_DHT
 
 # Sensor type for Adafruit_DHT, should be DHT11, DHT22 or AM2302
-sensor = Adafruit_DHT.DHT11
+sensor = Adafruit_DHT.DHT22
 
 # GPIOs for DHT sensors (BCM mode)
-sensor_gpios = [ 4, 18, 23 ]
+sensor_gpios = [ 4, 18, 12 ]
 
 # Data files for saving the humi and temp values
 outputs = [
